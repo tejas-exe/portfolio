@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { min-height: 100vh; color: #f8fafc; font-family: 'Manrope', system-ui, sans-serif; background: #09090b; background-image: radial-gradient(circle at 10% -5%, rgba(249, 115, 22, .16), transparent 32rem), radial-gradient(circle at 90% 28%, rgba(234, 88, 12, .10), transparent 26rem), linear-gradient(180deg, #0d0d10 0%, #09090b 60%, #0c0a09 100%); }
+  ::selection { background: #fb923c; color: #18181b; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #09090b; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(#fb923c, #ea580c); border: 3px solid #09090b; border-radius: 999px; }
+}
+
+@layer components {
+  .btn-primary { @apply relative overflow-hidden rounded-full px-7 py-3.5 font-bold text-zinc-950 transition-all duration-300; background: linear-gradient(135deg, #fed7aa, #fb923c 45%, #f97316); box-shadow: 0 12px 30px rgba(249, 115, 22, .22); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(249, 115, 22, .35); }
+  .btn-outline { @apply rounded-full border border-white/20 bg-white/[.03] px-7 py-3.5 font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-orange-300/70 hover:bg-orange-400/10; }
+  .section-heading { @apply mb-8 text-4xl font-extrabold tracking-tight sm:mb-12 md:text-5xl; }
+  .section-kicker { @apply mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[.22em] text-orange-300; }
+  .section-kicker::before { content: ''; @apply h-px w-8 bg-orange-300; }
+  .gradient-text { background: linear-gradient(110deg, #fed7aa 5%, #fb923c 48%, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .card { @apply relative overflow-hidden rounded-2xl border border-white/[.09] bg-white/[.035] p-5 backdrop-blur-sm transition-all duration-300 sm:p-6; box-shadow: 0 18px 45px rgba(0,0,0,.12); }
+  .card:hover { transform: translateY(-4px); border-color: rgba(251,146,60,.42); background: rgba(255,255,255,.06); box-shadow: 0 22px 50px rgba(0,0,0,.25); }
+  .input-field { @apply w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-orange-300/70 focus:bg-white/[.06] focus:ring-4 focus:ring-orange-400/10; }
+}
+
+.grid-fade { background-image: linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px); background-size: 58px 58px; mask-image: linear-gradient(to bottom, black, transparent); }
+.mono { font-family: 'DM Mono', monospace; }
+.animate-fadeIn { animation: fadeIn .8s ease-out both; }
+.animate-spin-slow { animation: spin 12s linear infinite; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
