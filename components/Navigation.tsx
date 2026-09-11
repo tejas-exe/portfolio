@@ -1,11 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sparkles, Send } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const links = [
     { label: 'Home', href: '#home' },
@@ -16,50 +25,89 @@ export default function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-primary/80 backdrop-blur-md border-b border-white/10 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#FFF9F5]/85 backdrop-blur-xl border-b border-[#2D2A32]/8 shadow-[0_4px_20px_rgba(45,42,50,0.03)] py-3'
+          : 'bg-transparent py-4 sm:py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="#" className="text-2xl font-bold gradient-text">
-          TK
+        <Link href="#" className="flex items-center gap-2.5 group">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#C9B8FF] via-[#FFD6BA] to-[#FFC8DD] p-[1.5px] shadow-sm group-hover:shadow-pastel-lavender transition-all duration-300">
+            <div className="w-full h-full rounded-[14px] bg-[#FFF9F5] flex items-center justify-center font-heading font-extrabold text-sm text-[#2D2A32] group-hover:bg-white transition-colors">
+              TK
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <span className="font-heading font-bold text-base text-[#2D2A32] leading-tight tracking-tight">
+              Tejas Kumarley
+            </span>
+            <span className="text-[11px] text-[#6B6570] font-medium leading-none">
+              Full-Stack Engineer
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex items-center gap-1.5 bg-white/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/80 shadow-soft">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-white/70 hover:text-secondary transition-colors duration-300 font-medium"
+              className="px-4 py-2 rounded-full text-sm font-semibold text-[#6B6570] hover:text-[#2D2A32] hover:bg-[#C9B8FF]/20 transition-all duration-200"
             >
               {link.label}
             </a>
           ))}
         </div>
 
+        {/* Right CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="#contact"
+            className="btn-primary-pastel !px-5 !py-2.5 text-xs font-bold gap-2"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-[#7C5CFF]" />
+            <span>Let&apos;s Talk</span>
+          </a>
+        </div>
+
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden rounded-lg p-2 text-secondary hover:bg-white/5"
+          className="md:hidden w-10 h-10 rounded-2xl bg-white/80 border border-white/80 shadow-soft flex items-center justify-center text-[#2D2A32] hover:bg-[#C9B8FF]/20 transition-colors"
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isOpen}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Drawer */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-primary/95 backdrop-blur-xl border-b border-white/10 md:hidden">
-            <div className="flex flex-col gap-1 p-4">
+          <div className="absolute top-full left-4 right-4 mt-2 bg-[#FFF9F5]/95 backdrop-blur-2xl border border-white/80 rounded-3xl p-5 shadow-soft-lg md:hidden animate-fadeIn">
+            <div className="flex flex-col gap-2">
               {links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-lg px-3 py-3 text-white/70 hover:bg-white/5 hover:text-secondary transition-colors"
+                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-[#2D2A32] hover:bg-white/80 hover:text-[#7C5CFF] transition-all"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
+              <div className="pt-2 mt-2 border-t border-[#2D2A32]/10">
+                <a
+                  href="#contact"
+                  className="btn-primary-pastel w-full text-center text-xs font-bold gap-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>Get In Touch</span>
+                </a>
+              </div>
             </div>
           </div>
         )}

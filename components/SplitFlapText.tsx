@@ -29,7 +29,7 @@ const createTiles = (phrase: string): Tile[] => phrase.split('').map(current => 
 
 export default function SplitFlapText({
   words = defaultWords, text, flipDuration = .12, stagger = .055,
-  cycleDelay = 2600, charset = 'alphanumeric', flipsPerChar = 7, tileColor = '#18120f', textColor = '#fed7aa',
+  cycleDelay = 2600, charset = 'alphanumeric', flipsPerChar = 7, tileColor = '#EDE9FE', textColor = '#2D2A32',
   tileRadius = 8, gap = 5, fontSize = 32, loop = true, padTo = 18, className = '', style, ...props
 }: SplitFlapTextProps) {
   const [reducedMotion, setReducedMotion] = useState(false)
