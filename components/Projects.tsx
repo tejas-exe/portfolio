@@ -31,59 +31,59 @@ interface CategoryStyle {
 
 const categoryStyles: Record<string, CategoryStyle> = {
   'Enterprise & Cloud': {
-    border: 'border-[#B8F2E6]/90',
-    hoverBorder: 'hover:border-[#0D9488]',
-    badgeBg: 'bg-[#B8F2E6]/40',
-    badgeText: 'text-[#0D9488]',
-    badgeBorder: 'border-[#B8F2E6]',
-    chipBg: 'bg-[#B8F2E6]/25',
-    chipText: 'text-[#0F766E]',
-    chipBorder: 'border-[#B8F2E6]/60',
-    glowShadow: 'hover:shadow-pastel-mint',
+    border: 'border-spirit-400/30',
+    hoverBorder: 'hover:border-spirit-400/70',
+    badgeBg: 'bg-spirit-500/20',
+    badgeText: 'text-spirit-300',
+    badgeBorder: 'border-spirit-400/40',
+    chipBg: 'bg-spirit-500/15',
+    chipText: 'text-spirit-300',
+    chipBorder: 'border-spirit-400/30',
+    glowShadow: 'hover:shadow-spirit-glow',
   },
   'Web Apps': {
-    border: 'border-[#BDE0FE]/90',
-    hoverBorder: 'hover:border-[#2563EB]',
-    badgeBg: 'bg-[#BDE0FE]/40',
-    badgeText: 'text-[#2563EB]',
-    badgeBorder: 'border-[#BDE0FE]',
-    chipBg: 'bg-[#BDE0FE]/25',
-    chipText: 'text-[#1D4ED8]',
-    chipBorder: 'border-[#BDE0FE]/60',
-    glowShadow: 'hover:shadow-pastel-blue',
+    border: 'border-sea-300/30',
+    hoverBorder: 'hover:border-sea-300/70',
+    badgeBg: 'bg-sea-500/25',
+    badgeText: 'text-sea-200',
+    badgeBorder: 'border-sea-300/40',
+    chipBg: 'bg-sea-500/20',
+    chipText: 'text-sea-200',
+    chipBorder: 'border-sea-300/30',
+    glowShadow: 'hover:shadow-sea-glow',
   },
   'Full-Stack': {
-    border: 'border-[#FFD6BA]/90',
-    hoverBorder: 'hover:border-[#EA580C]',
-    badgeBg: 'bg-[#FFD6BA]/40',
-    badgeText: 'text-[#EA580C]',
-    badgeBorder: 'border-[#FFD6BA]',
-    chipBg: 'bg-[#FFD6BA]/25',
-    chipText: 'text-[#C2410C]',
-    chipBorder: 'border-[#FFD6BA]/60',
-    glowShadow: 'hover:shadow-pastel-peach',
+    border: 'border-lantern-500/30',
+    hoverBorder: 'hover:border-lantern-400/70',
+    badgeBg: 'bg-lantern-500/20',
+    badgeText: 'text-lantern-300',
+    badgeBorder: 'border-lantern-500/40',
+    chipBg: 'bg-lantern-500/15',
+    chipText: 'text-lantern-300',
+    chipBorder: 'border-lantern-500/30',
+    glowShadow: 'hover:shadow-lantern',
   },
   'APIs & Automation': {
-    border: 'border-[#C9B8FF]/90',
-    hoverBorder: 'hover:border-[#7C5CFF]',
-    badgeBg: 'bg-[#C9B8FF]/40',
-    badgeText: 'text-[#7C5CFF]',
-    badgeBorder: 'border-[#C9B8FF]',
-    chipBg: 'bg-[#C9B8FF]/25',
-    chipText: 'text-[#6D28D9]',
-    chipBorder: 'border-[#C9B8FF]/60',
-    glowShadow: 'hover:shadow-pastel-lavender',
+    border: 'border-noface/40',
+    hoverBorder: 'hover:border-noface-300',
+    badgeBg: 'bg-noface/25',
+    badgeText: 'text-noface-300',
+    badgeBorder: 'border-noface-300/40',
+    chipBg: 'bg-noface/20',
+    chipText: 'text-noface-300',
+    chipBorder: 'border-noface-300/30',
+    glowShadow: 'hover:shadow-sea-glow',
   },
   'Healthcare': {
-    border: 'border-[#FFC8DD]/90',
-    hoverBorder: 'hover:border-[#DB2777]',
-    badgeBg: 'bg-[#FFC8DD]/40',
-    badgeText: 'text-[#DB2777]',
-    badgeBorder: 'border-[#FFC8DD]',
-    chipBg: 'bg-[#FFC8DD]/25',
-    chipText: 'text-[#BE185D]',
-    chipBorder: 'border-[#FFC8DD]/60',
-    glowShadow: 'hover:shadow-pastel-pink',
+    border: 'border-sakura-400/30',
+    hoverBorder: 'hover:border-sakura-300/70',
+    badgeBg: 'bg-sakura-500/20',
+    badgeText: 'text-sakura-300',
+    badgeBorder: 'border-sakura-400/40',
+    chipBg: 'bg-sakura-500/15',
+    chipText: 'text-sakura-300',
+    chipBorder: 'border-sakura-400/30',
+    glowShadow: 'hover:shadow-lantern',
   },
 }
 
@@ -266,12 +266,12 @@ const projects: Project[] = [
 ]
 
 const categories: { label: ProjectCategory; icon: any; color: string }[] = [
-  { label: 'All', icon: Layers, color: 'text-[#7C5CFF]' },
-  { label: 'Enterprise & Cloud', icon: Cpu, color: 'text-[#0D9488]' },
-  { label: 'Full-Stack', icon: Database, color: 'text-[#EA580C]' },
-  { label: 'Web Apps', icon: Globe, color: 'text-[#2563EB]' },
-  { label: 'APIs & Automation', icon: Code2, color: 'text-[#7C5CFF]' },
-  { label: 'Healthcare', icon: Sparkles, color: 'text-[#DB2777]' },
+  { label: 'All', icon: Layers, color: 'text-lantern-300' },
+  { label: 'Enterprise & Cloud', icon: Cpu, color: 'text-spirit-300' },
+  { label: 'Full-Stack', icon: Database, color: 'text-lantern-400' },
+  { label: 'Web Apps', icon: Globe, color: 'text-sea-200' },
+  { label: 'APIs & Automation', icon: Code2, color: 'text-noface-300' },
+  { label: 'Healthcare', icon: Sparkles, color: 'text-sakura-300' },
 ]
 
 export default function Projects() {
@@ -285,9 +285,11 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative px-4 py-20 sm:px-6 sm:py-28 overflow-hidden">
-      {/* Background ambient pastel blobs */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#C9B8FF]/15 blur-[120px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-[#B8F2E6]/20 blur-[100px] rounded-full pointer-events-none -z-10" />
+      {/* Background ambient night mists */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-sea-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-spirit-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+      {/* Star dust layer */}
+      <div className="starfield-dust pointer-events-none absolute inset-0 -z-10 opacity-60" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -295,16 +297,16 @@ export default function Projects() {
           <div>
             <p className="section-kicker">Featured Portfolio</p>
             <h2 className="section-heading mb-3">
-              Crafted <span className="gradient-pastel-text">Projects & Systems</span>
+              Crafted <span className="gradient-lantern-text font-display">Projects &amp; Systems</span>
             </h2>
-            <p className="text-[#6B6570] max-w-2xl text-base sm:text-lg leading-relaxed font-normal">
+            <p className="text-mist max-w-2xl text-base sm:text-lg leading-relaxed font-normal">
               A showcase of scalable full-stack applications, enterprise platforms, real-time dashboards, and automation pipelines built for high performance.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="px-4 py-2 rounded-full border border-[#C9B8FF]/80 bg-white/80 text-[#7C5CFF] text-xs font-bold shadow-soft">
-              {projects.length} Production Projects
+            <span className="px-4 py-2 rounded-full border border-lantern-500/40 bg-night-900/80 text-lantern-300 text-xs font-bold shadow-soft backdrop-blur-md">
+              ✦ {projects.length} Production Projects
             </span>
           </div>
         </div>
@@ -323,19 +325,19 @@ export default function Projects() {
               <button
                 key={cat.label}
                 onClick={() => setActiveCategory(cat.label)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 whitespace-nowrap ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 whitespace-nowrap backdrop-blur-md ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#C9B8FF] to-[#FFC8DD] text-[#2D2A32] shadow-soft-md scale-[1.02] border border-white'
-                    : 'border border-[#2D2A32]/8 bg-white/70 text-[#6B6570] hover:text-[#2D2A32] hover:bg-white hover:border-[#C9B8FF]/50 shadow-soft'
+                    ? 'bg-gradient-to-r from-lantern-300 to-lantern-500 text-[#1A1206] shadow-lantern scale-[1.02] border border-lantern-200'
+                    : 'border border-sea-300/20 bg-night-900/70 text-mist hover:text-ink hover:bg-night-800/80 hover:border-lantern-500/40 shadow-soft'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#2D2A32]' : cat.color}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#1A1206]' : cat.color}`} />
                 <span>{cat.label}</span>
                 <span
                   className={`ml-1 text-[11px] px-2 py-0.5 rounded-full font-bold ${
                     isActive
-                      ? 'bg-white/80 text-[#2D2A32]'
-                      : 'bg-[#2D2A32]/5 text-[#6B6570]'
+                      ? 'bg-night-950/20 text-[#1A1206]'
+                      : 'bg-sea-300/10 text-mist-400'
                   }`}
                 >
                   {count}
@@ -355,11 +357,11 @@ export default function Projects() {
             return (
               <div
                 key={project.title}
-                className={`group flex flex-col justify-between rounded-[28px] bg-white/90 p-5 sm:p-6 backdrop-blur-xl border ${style.border} ${style.hoverBorder} ${style.glowShadow} shadow-soft hover:-translate-y-1.5 transition-all duration-300`}
+                className={`group flex flex-col justify-between rounded-[28px] bg-night-900/55 p-5 sm:p-6 backdrop-blur-xl border ${style.border} ${style.hoverBorder} ${style.glowShadow} shadow-soft hover:-translate-y-1.5 transition-all duration-300`}
               >
                 <div>
                   {/* Project Image Preview with Overlay */}
-                  <div className="relative mb-5 overflow-hidden rounded-[20px] border border-black/5 bg-[#FFF9F5] aspect-[16/9] shadow-inner">
+                  <div className="relative mb-5 overflow-hidden rounded-[20px] border border-sea-300/15 bg-night-950/60 aspect-[16/9] shadow-inner">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -384,20 +386,20 @@ export default function Projects() {
                     <button
                       onClick={() => setSelectedImage({ src: project.image, title: project.title })}
                       title="View full preview"
-                      className="absolute top-3 right-3 p-2 rounded-xl bg-white/90 text-[#2D2A32] hover:bg-white backdrop-blur-md opacity-0 group-hover:opacity-100 shadow-soft transition-all"
+                      className="absolute top-3 right-3 p-2 rounded-xl bg-night-950/80 text-ink hover:bg-night-900 backdrop-blur-md opacity-0 group-hover:opacity-100 shadow-soft transition-all"
                     >
                       <Maximize2 className="w-3.5 h-3.5" />
                     </button>
 
                     {/* Subtitle bottom banner */}
                     {project.subtitle && (
-                      <div className="absolute bottom-2.5 left-3 right-3 text-xs font-semibold text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] truncate">
+                      <div className="absolute bottom-2.5 left-3 right-3 text-xs font-semibold text-ink drop-shadow-[0_1px_3px_rgba(3,10,24,0.95)] truncate">
                         {project.subtitle}
                       </div>
                     )}
                   </div>
 
-                  {/* Tech Stack Pills (Pastel Chips) */}
+                  {/* Tech Stack Pills */}
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tech.map((tech) => (
                       <span
@@ -410,24 +412,24 @@ export default function Projects() {
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="mb-2 font-heading text-lg font-bold leading-snug text-[#2D2A32] transition-colors group-hover:text-[#7C5CFF]">
+                  <h3 className="mb-2 font-heading text-lg font-bold leading-snug text-ink transition-colors group-hover:text-lantern-300">
                     {project.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[#6B6570] text-sm mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-mist text-sm mb-4 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
 
                   {/* Highlights */}
-                  <div className="mb-5 pt-3.5 border-t border-[#2D2A32]/8">
-                    <h4 className="text-xs font-bold text-[#7C5CFF] uppercase tracking-wider mb-2.5">
-                      Key Highlights
+                  <div className="mb-5 pt-3.5 border-t border-sea-300/15">
+                    <h4 className="text-xs font-bold text-lantern-300 uppercase tracking-wider mb-2.5">
+                      ✦ Key Highlights
                     </h4>
                     <ul className="space-y-1.5">
                       {project.highlights.slice(0, 3).map((highlight, i) => (
-                        <li key={i} className="text-xs text-[#6B6570] flex items-start gap-2 leading-tight">
-                          <span className="text-[#7C5CFF] font-bold text-sm leading-none mt-0.5">›</span>
+                        <li key={i} className="text-xs text-mist flex items-start gap-2 leading-tight">
+                          <span className="text-spirit-400 font-bold text-sm leading-none mt-0.5">›</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -436,21 +438,21 @@ export default function Projects() {
                 </div>
 
                 {/* Footer Links */}
-                <div className="pt-4 border-t border-[#2D2A32]/8 flex items-center justify-between mt-2">
+                <div className="pt-4 border-t border-sea-300/15 flex items-center justify-between mt-2">
                   <div className="flex items-center gap-2.5">
                     {hasLiveLink ? (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-bold text-[#2D2A32] hover:text-[#7C5CFF] transition-colors px-3 py-1.5 rounded-xl bg-[#C9B8FF]/25 hover:bg-[#C9B8FF]/45 border border-[#C9B8FF]/60 shadow-soft"
+                        className="flex items-center gap-1.5 text-xs font-bold text-night-950 hover:text-night-950 transition-colors px-3 py-1.5 rounded-xl bg-gradient-to-r from-lantern-300 to-lantern-500 hover:shadow-lantern border border-lantern-200/80"
                       >
                         <span>Visit Live</span>
                         <ArrowUpRight size={13} />
                       </a>
                     ) : (
-                      <span className="text-xs font-semibold text-[#6B6570] flex items-center gap-1.5">
-                        <CheckCircle2 size={13} className="text-[#0D9488]" />
+                      <span className="text-xs font-semibold text-mist flex items-center gap-1.5">
+                        <CheckCircle2 size={13} className="text-spirit-400" />
                         Production Shipped
                       </span>
                     )}
@@ -460,7 +462,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-semibold text-[#6B6570] hover:text-[#2D2A32] transition-colors px-2 py-1 rounded-lg hover:bg-black/5"
+                        className="flex items-center gap-1.5 text-xs font-semibold text-mist hover:text-ink transition-colors px-2 py-1 rounded-lg hover:bg-sea-300/10"
                       >
                         <Github size={13} />
                         <span>Source</span>
@@ -470,7 +472,7 @@ export default function Projects() {
 
                   <button
                     onClick={() => setSelectedImage({ src: project.image, title: project.title })}
-                    className="text-[11px] text-[#6B6570] hover:text-[#7C5CFF] transition-colors font-semibold flex items-center gap-1"
+                    className="text-[11px] text-mist hover:text-lantern-300 transition-colors font-semibold flex items-center gap-1"
                   >
                     <span>Preview</span>
                     <Maximize2 size={11} />
@@ -484,31 +486,31 @@ export default function Projects() {
         {/* Lightbox Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-[#2D2A32]/70 p-4 backdrop-blur-md animate-fadeIn"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-night-950/85 p-4 backdrop-blur-md animate-fadeIn"
             onClick={() => setSelectedImage(null)}
           >
             <div
-              className="relative max-w-5xl w-full max-h-[90vh] bg-[#FFF9F5] border border-white/80 rounded-[32px] overflow-hidden shadow-2xl flex flex-col"
+              className="relative max-w-5xl w-full max-h-[90vh] bg-night-950/85 border border-sea-300/25 rounded-[32px] overflow-hidden shadow-soft-lg flex flex-col backdrop-blur-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-[#2D2A32]/8 bg-white/80 backdrop-blur-md">
+              <div className="flex items-center justify-between px-6 py-4 border-b border-sea-300/15 bg-night-950/80 backdrop-blur-md">
                 <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#7C5CFF] animate-pulse" />
-                  <h3 className="font-heading font-bold text-[#2D2A32] text-base sm:text-lg">
+                  <div className="w-2.5 h-2.5 rounded-full bg-lantern-400 animate-pulse shadow-lantern" />
+                  <h3 className="font-heading font-bold text-ink text-base sm:text-lg">
                     {selectedImage.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="p-2 rounded-xl bg-white hover:bg-[#C9B8FF]/20 text-[#2D2A32] shadow-soft transition"
+                  className="p-2 rounded-xl bg-night-800 hover:bg-lantern-500/20 text-ink shadow-soft transition"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Modal Image */}
-              <div className="p-4 sm:p-6 flex items-center justify-center overflow-auto bg-white/50">
+              <div className="p-4 sm:p-6 flex items-center justify-center overflow-auto bg-night-950/60">
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.title}
@@ -521,14 +523,14 @@ export default function Projects() {
 
         {/* Bottom Banner */}
         <div className="mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-3 rounded-full border border-white/90 bg-white/80 px-6 py-3.5 backdrop-blur-xl shadow-soft">
-            <span className="flex h-2.5 w-2.5 rounded-full bg-[#0D9488] animate-ping" />
-            <span className="text-sm text-[#6B6570] font-medium">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-3 rounded-full border border-sea-300/20 bg-night-900/80 px-6 py-3.5 backdrop-blur-xl shadow-soft">
+            <span className="flex h-2.5 w-2.5 rounded-full bg-spirit-400 animate-ping" />
+            <span className="text-sm text-mist font-medium">
               Need a custom full-stack web application, enterprise dashboard, or automated API pipeline?
             </span>
             <a
               href="#contact"
-              className="text-xs font-bold text-[#7C5CFF] hover:text-[#DB2777] underline underline-offset-4 sm:ml-2"
+              className="text-xs font-bold text-lantern-300 hover:text-lantern-200 underline underline-offset-4 sm:ml-2"
             >
               Let&apos;s build it together &rarr;
             </a>

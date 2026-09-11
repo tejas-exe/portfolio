@@ -18,10 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link
           rel="icon"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23C9B8FF'/><text x='50' y='68' font-size='56' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%232D2A32'>TK</text></svg>"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230A1830' stroke='%23F5C542' stroke-width='4'/><circle cx='35' cy='42' r='5' fill='%23EAF4FB'/><circle cx='65' cy='42' r='5' fill='%23EAF4FB'/><path d='M35 65 Q50 74 65 65' stroke='%23F5C542' stroke-width='5' fill='none' stroke-linecap='round'/></svg>"
         />
       </head>
-      <body className="bg-[#FFF9F5] text-[#2D2A32] antialiased selection:bg-[#FFC8DD] selection:text-[#2D2A32]">
+      <body className="bg-night-900 text-ink antialiased selection:bg-lantern-500/40 selection:text-[#FFF9EC]">
         {children}
       </body>
     </html>

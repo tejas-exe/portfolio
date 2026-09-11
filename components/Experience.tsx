@@ -8,8 +8,8 @@ const experience = [
     company: 'Technostacks',
     location: 'Gujarat, India',
     period: 'Jun 2025 – Present',
-    badgeColor: 'bg-[#C9B8FF]/40 text-[#7C5CFF] border-[#C9B8FF]',
-    dotColor: 'bg-[#7C5CFF] ring-[#C9B8FF]',
+    badgeColor: 'bg-lantern-500/20 text-lantern-300 border-lantern-500/40',
+    dotColor: 'bg-lantern-400 ring-lantern-500/40 shadow-lantern',
     description:
       'Lead developer on Aryos AI solar monitoring platform and Jaina digital-humanities platform at Stanford. Build production applications with React, Next.js, Node.js, and modern tech stack.',
     achievements: [
@@ -23,8 +23,8 @@ const experience = [
     company: 'V2 Solutions',
     location: 'Vadodara, India',
     period: 'Jul 2023 – Apr 2025',
-    badgeColor: 'bg-[#B8F2E6]/40 text-[#0D9488] border-[#B8F2E6]',
-    dotColor: 'bg-[#0D9488] ring-[#B8F2E6]',
+    badgeColor: 'bg-spirit-500/20 text-spirit-300 border-spirit-400/40',
+    dotColor: 'bg-spirit-400 ring-spirit-500/40 shadow-spirit-glow',
     description:
       'Developed full-stack HR and project-management applications. Built comprehensive admin modules and secure REST APIs with JWT authentication.',
     achievements: [
@@ -38,8 +38,8 @@ const experience = [
     company: 'Pond Splash',
     location: 'Remote',
     period: 'Apr 2023 – Jul 2023',
-    badgeColor: 'bg-[#FFD6BA]/40 text-[#EA580C] border-[#FFD6BA]',
-    dotColor: 'bg-[#EA580C] ring-[#FFD6BA]',
+    badgeColor: 'bg-sea-500/25 text-sea-200 border-sea-300/40',
+    dotColor: 'bg-sea-300 ring-sea-400/40 shadow-sea-glow',
     description:
       'Designed and built Node.js/Express.js APIs on MongoDB for customer order management with automated notifications and scheduled tasks.',
     achievements: [
@@ -53,8 +53,8 @@ const experience = [
     company: 'iPangram',
     location: 'Remote',
     period: 'Oct 2021 – Mar 2023',
-    badgeColor: 'bg-[#FFC8DD]/40 text-[#DB2777] border-[#FFC8DD]',
-    dotColor: 'bg-[#DB2777] ring-[#FFC8DD]',
+    badgeColor: 'bg-sakura-500/20 text-sakura-300 border-sakura-400/40',
+    dotColor: 'bg-sakura-400 ring-sakura-400/40',
     description:
       'Developed backend services and secure REST APIs. Collaborated with frontend engineers and refactored legacy modules for better performance.',
     achievements: [
@@ -68,72 +68,74 @@ const experience = [
 export default function Experience() {
   return (
     <section id="experience" className="relative px-4 py-20 sm:px-6 sm:py-28 overflow-hidden">
-      {/* Background ambient pastel blob */}
-      <div className="absolute top-1/2 left-10 -translate-y-1/2 w-[550px] h-[550px] bg-[#FFD6BA]/15 blur-[130px] rounded-full pointer-events-none -z-10" />
+      {/* Background ambient night mist */}
+      <div className="absolute top-1/2 left-10 -translate-y-1/2 w-[550px] h-[550px] bg-sea-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="starfield-dust pointer-events-none absolute inset-0 -z-10 opacity-40" />
 
       <div className="max-w-5xl mx-auto">
         <div className="text-center md:text-left mb-14">
-          <p className="section-kicker">Career Journey & Milestones</p>
+          <p className="section-kicker">Career Journey &amp; Milestones</p>
           <h2 className="section-heading">
-            Work <span className="gradient-pastel-text">Experience</span>
+            Work <span className="gradient-river-text font-display">Experience</span>
           </h2>
-          <p className="text-[#6B6570] max-w-xl text-base sm:text-lg">
+          <p className="text-mist max-w-xl text-base sm:text-lg">
             A track record of shipping enterprise software, high-throughput APIs, and modern web applications across startups and global teams.
           </p>
         </div>
 
-        {/* Timeline Container */}
+        {/* Timeline Container — the river path */}
         <div className="relative pl-6 sm:pl-10">
-          {/* Continuous Multi-Pastel Gradient Vertical Line */}
+          {/* Continuous river-gradient vertical line */}
           <div
-            className="absolute left-[11px] sm:left-[19px] top-4 bottom-4 w-1 rounded-full bg-gradient-to-b from-[#C9B8FF] via-[#B8F2E6] via-[#FFD6BA] to-[#FFC8DD]"
+            className="absolute left-[11px] sm:left-[19px] top-4 bottom-4 w-1 rounded-full bg-gradient-to-b from-lantern-400 via-spirit-400 via-sea-400 to-noface"
+            style={{ boxShadow: '0 0 12px rgba(74, 141, 190, 0.4)' }}
           />
 
           <div className="space-y-8 sm:space-y-12">
             {experience.map((job, index) => (
               <div key={index} className="relative group">
-                {/* Milestone Node Dot */}
+                {/* Milestone Node — glowing lantern dot */}
                 <div
-                  className={`absolute -left-[30px] sm:-left-[39px] top-6 w-5 h-5 rounded-full ${job.dotColor} ring-4 ring-white shadow-soft transition-transform duration-300 group-hover:scale-125`}
+                  className={`absolute -left-[30px] sm:-left-[39px] top-6 w-5 h-5 rounded-full ${job.dotColor} ring-4 ring-night-950 transition-transform duration-300 group-hover:scale-125`}
                 />
 
                 {/* Card */}
-                <div className="rounded-[28px] bg-white/90 p-6 sm:p-8 border border-white/90 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 backdrop-blur-xl transition-all duration-300">
+                <div className="rounded-[28px] bg-night-900/55 p-6 sm:p-8 border border-sea-300/20 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 backdrop-blur-xl transition-all duration-300">
                   <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <Briefcase size={16} className="text-[#7C5CFF]" />
-                        <h3 className="font-heading text-xl font-extrabold text-[#2D2A32] sm:text-2xl">
+                        <Briefcase size={16} className="text-lantern-300" />
+                        <h3 className="font-heading text-xl font-bold text-ink sm:text-2xl">
                           {job.role}
                         </h3>
                       </div>
-                      <p className="text-base font-bold text-[#2D2A32]">{job.company}</p>
-                      <div className="flex items-center gap-1.5 text-xs font-semibold text-[#6B6570] mt-1">
-                        <MapPin size={13} className="text-[#EA580C]" />
+                      <p className="text-base font-bold text-ink">{job.company}</p>
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-mist-400 mt-1">
+                        <MapPin size={13} className="text-sakura-300" />
                         <span>{job.location}</span>
                       </div>
                     </div>
 
                     <span
-                      className={`inline-flex items-center gap-1.5 w-fit rounded-full px-4 py-1.5 text-xs font-bold border shadow-sm ${job.badgeColor}`}
+                      className={`inline-flex items-center gap-1.5 w-fit rounded-full px-4 py-1.5 text-xs font-bold border shadow-sm backdrop-blur-md ${job.badgeColor}`}
                     >
                       <Calendar size={12} />
                       {job.period}
                     </span>
                   </div>
 
-                  <p className="text-[#6B6570] mb-5 leading-relaxed text-sm sm:text-base font-normal">
+                  <p className="text-mist mb-5 leading-relaxed text-sm sm:text-base font-normal">
                     {job.description}
                   </p>
 
-                  <div className="pt-4 border-t border-[#2D2A32]/8">
-                    <h4 className="text-xs font-bold text-[#7C5CFF] uppercase tracking-wider mb-3">
-                      Key Highlights & Impact:
+                  <div className="pt-4 border-t border-sea-300/15">
+                    <h4 className="text-xs font-bold text-lantern-300 uppercase tracking-wider mb-3">
+                      ✦ Key Highlights &amp; Impact:
                     </h4>
                     <ul className="space-y-2">
                       {job.achievements.map((achievement, i) => (
-                        <li key={i} className="text-[#6B6570] text-xs sm:text-sm flex items-start gap-2.5">
-                          <CheckCircle2 size={15} className="text-[#0D9488] flex-shrink-0 mt-0.5" />
+                        <li key={i} className="text-mist text-xs sm:text-sm flex items-start gap-2.5">
+                          <CheckCircle2 size={15} className="text-spirit-400 flex-shrink-0 mt-0.5" />
                           <span>{achievement}</span>
                         </li>
                       ))}

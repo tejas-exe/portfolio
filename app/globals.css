@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Quicksand:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,123 +7,140 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: light;
+    color-scheme: dark;
   }
   body {
     min-height: 100vh;
-    color: #2D2A32;
-    background-color: #FFF9F5;
-    font-family: 'Inter', system-ui, sans-serif;
-    background-image: 
-      radial-gradient(circle at 12% 15%, rgba(201, 184, 255, 0.18), transparent 30rem),
-      radial-gradient(circle at 88% 20%, rgba(184, 242, 230, 0.22), transparent 32rem),
-      radial-gradient(circle at 50% 60%, rgba(255, 214, 186, 0.16), transparent 36rem),
-      radial-gradient(circle at 85% 85%, rgba(255, 200, 221, 0.18), transparent 32rem),
-      radial-gradient(circle at 15% 90%, rgba(189, 224, 254, 0.2), transparent 30rem);
-    background-attachment: fixed;
+    color: #EAF4FB;
+    background-color: #0A1830;
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    /* The Spirited Away wallpaper shines through — light scrim only for legibility */
+    background-image:
+      linear-gradient(180deg, rgba(5, 13, 31, 0.10) 0%, rgba(5, 13, 31, 0.16) 45%, rgba(10, 24, 48, 0.30) 100%),
+      url('/ghibli-bg.jpg');
+    background-size: cover, cover;
+    background-position: center top, center top;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: fixed, fixed;
   }
   ::selection {
-    background: #FFC8DD;
-    color: #2D2A32;
+    background: rgba(245, 197, 66, 0.45);
+    color: #FFF9EC;
   }
   ::-webkit-scrollbar {
     width: 9px;
   }
   ::-webkit-scrollbar-track {
-    background: #FFF9F5;
+    background: #050D1F;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #C9B8FF, #FFC8DD);
+    background: linear-gradient(180deg, #1B3F6B, #2E6DA3);
     border-radius: 999px;
-    border: 2px solid #FFF9F5;
+    border: 2px solid #050D1F;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #A78BFA, #F472B6);
+    background: linear-gradient(180deg, #D9A425, #F5C542);
   }
 }
 
 @layer components {
-  /* Pastel Primary CTA Button */
-  .btn-primary-pastel {
-    @apply relative inline-flex items-center justify-center overflow-hidden rounded-full px-7 py-3.5 font-bold text-[#2D2A32] transition-all duration-300;
-    background: linear-gradient(135deg, #C9B8FF 0%, #E8D7FF 40%, #FFC8DD 100%);
-    box-shadow: 0 8px 24px -4px rgba(201, 184, 255, 0.55), 0 2px 6px -1px rgba(255, 200, 221, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+  /* Lantern-glow primary CTA — the warm light in the night */
+  .btn-primary-lantern {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-full px-7 py-3.5 font-bold text-[#1A1206] transition-all duration-300;
+    background: linear-gradient(135deg, #FFE9A8 0%, #FFD97A 45%, #F5C542 100%);
+    box-shadow: 0 0 22px rgba(245, 197, 66, 0.4), 0 8px 26px -6px rgba(245, 197, 66, 0.5);
+    border: 1px solid rgba(255, 243, 204, 0.9);
   }
-  .btn-primary-pastel:hover {
+  .btn-primary-lantern:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, #BFA9FF 0%, #DFC9FF 40%, #FFB6D2 100%);
-    box-shadow: 0 14px 32px -4px rgba(201, 184, 255, 0.7), 0 4px 12px -1px rgba(255, 200, 221, 0.5);
+    background: linear-gradient(135deg, #FFF3CC 0%, #FFE9A8 45%, #FFD97A 100%);
+    box-shadow: 0 0 36px rgba(245, 197, 66, 0.55), 0 12px 32px -6px rgba(245, 197, 66, 0.6);
   }
 
-  /* Pastel Outline Button */
-  .btn-outline-pastel {
-    @apply relative inline-flex items-center justify-center rounded-full border border-[#2D2A32]/15 bg-white/70 px-7 py-3.5 font-bold text-[#2D2A32] backdrop-blur-md transition-all duration-300;
-    box-shadow: 0 4px 16px -2px rgba(45, 42, 50, 0.04);
+  /* Water-ripple outline button */
+  .btn-outline-sea {
+    @apply relative inline-flex items-center justify-center rounded-full border border-sea-300/30 bg-night-800/60 px-7 py-3.5 font-bold text-sea-100 backdrop-blur-md transition-all duration-300;
+    box-shadow: 0 4px 18px -2px rgba(3, 10, 24, 0.5);
   }
-  .btn-outline-pastel:hover {
+  .btn-outline-sea:hover {
     transform: translateY(-2px);
-    border-color: #7C5CFF;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 8px 24px -2px rgba(201, 184, 255, 0.35);
-    color: #5833EA;
+    border-color: rgba(245, 197, 66, 0.6);
+    background: rgba(15, 35, 64, 0.85);
+    box-shadow: 0 0 24px rgba(245, 197, 66, 0.25);
+    color: #FFE9A8;
   }
 
-  /* Section Headings */
+  /* Section headings — storybook style */
   .section-heading {
-    @apply mb-4 text-3xl font-extrabold tracking-tight text-[#2D2A32] sm:text-4xl md:text-5xl;
-    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    @apply mb-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl md:text-5xl;
+    font-family: 'Quicksand', sans-serif;
   }
   .section-kicker {
-    @apply mb-3 inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.22em] text-[#7C5CFF];
+    @apply mb-3 inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.22em] text-lantern-400;
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
   }
   .section-kicker::before {
-    content: '';
-    @apply h-1.5 w-1.5 rounded-full bg-[#7C5CFF];
+    content: '✦';
+    @apply text-lantern-500;
+    text-shadow: 0 0 12px rgba(245, 197, 66, 0.8);
   }
 
-  /* Pastel Gradient Text (High legibility on cream/light) */
-  .gradient-pastel-text {
-    background: linear-gradient(125deg, #6D4AFF 0%, #9055FD 35%, #D946EF 75%, #EC4899 100%);
+  /* Lantern gradient text */
+  .gradient-lantern-text {
+    background: linear-gradient(120deg, #FFF3CC 0%, #FFD97A 40%, #F5C542 75%, #D9A425 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .gradient-subtle-text {
-    background: linear-gradient(125deg, #2D2A32 0%, #4B3869 100%);
+  .gradient-river-text {
+    background: linear-gradient(120deg, #A9CFE8 0%, #7FB3D8 45%, #8FD3C7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Pastel Card Base */
-  .card-pastel {
-    @apply relative overflow-hidden rounded-3xl border border-white/80 bg-white/70 p-6 backdrop-blur-xl transition-all duration-300 sm:p-7;
-    box-shadow: 0 10px 30px -4px rgba(45, 42, 50, 0.05), 0 2px 8px -2px rgba(45, 42, 50, 0.02);
+  /* Glass-over-water card */
+  .card-water {
+    @apply relative overflow-hidden rounded-3xl border border-sea-300/15 bg-night-800/60 p-6 backdrop-blur-xl transition-all duration-300 sm:p-7;
+    box-shadow: 0 10px 34px -6px rgba(3, 10, 24, 0.55), inset 0 1px 0 rgba(211, 232, 245, 0.08);
   }
-  .card-pastel:hover {
+  .card-water:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 40px -6px rgba(45, 42, 50, 0.08), 0 6px 14px -3px rgba(201, 184, 255, 0.2);
+    border-color: rgba(127, 179, 216, 0.35);
+    box-shadow: 0 20px 44px -8px rgba(3, 10, 24, 0.65), 0 0 30px rgba(74, 141, 190, 0.18);
   }
 
-  /* Input Field */
-  .input-field-pastel {
-    @apply w-full rounded-2xl border border-[#2D2A32]/10 bg-white/90 px-4 py-3.5 text-[#2D2A32] outline-none transition-all placeholder:text-[#6B6570]/50 focus:border-[#7C5CFF] focus:bg-white focus:ring-4 focus:ring-[#C9B8FF]/30;
-    box-shadow: 0 2px 8px rgba(45, 42, 50, 0.02) inset;
+  /* Input field — dark glass */
+  .input-field-sea {
+    @apply w-full rounded-2xl border border-sea-300/20 bg-night-950/60 px-4 py-3.5 text-ink outline-none transition-all placeholder:text-mist-400/50 focus:border-lantern-500/60 focus:bg-night-900/80 focus:ring-4 focus:ring-lantern-500/15;
+    box-shadow: inset 0 2px 8px rgba(3, 10, 24, 0.4);
   }
 
   /* Legacy mapping helpers so any unmigrated references degrade gracefully */
-  .btn-primary { @apply btn-primary-pastel; }
-  .btn-outline { @apply btn-outline-pastel; }
-  .gradient-text { @apply gradient-pastel-text; }
-  .card { @apply card-pastel; }
-  .input-field { @apply input-field-pastel; }
+  .btn-primary { @apply btn-primary-lantern; }
+  .btn-outline { @apply btn-outline-sea; }
+  .gradient-text { @apply gradient-lantern-text; }
+  .card { @apply card-water; }
+  .input-field { @apply input-field-sea; }
 }
 
-/* Subtle dotted grid texture for soft tactile aesthetic */
-.pastel-mesh-bg {
-  background-image: radial-gradient(rgba(107, 101, 112, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
+/* Subtle drifting-star dust texture */
+.starfield-dust {
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255, 243, 204, 0.7) 50%, transparent 51%),
+    radial-gradient(1px 1px at 70% 15%, rgba(211, 232, 245, 0.6) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 45% 70%, rgba(255, 233, 168, 0.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 85% 60%, rgba(211, 232, 245, 0.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 10% 85%, rgba(255, 243, 204, 0.45) 50%, transparent 51%);
+  background-size: 320px 320px;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.35; }
+  100% { opacity: 0.85; }
 }
 
 .mono {

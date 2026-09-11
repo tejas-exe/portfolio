@@ -60,16 +60,17 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative px-4 py-20 sm:px-6 sm:py-28 overflow-hidden">
-      {/* Background ambient pastel glow */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-[#C9B8FF]/15 blur-[140px] rounded-full pointer-events-none -z-10" />
+      {/* Background ambient lantern glow + star dust */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-lantern-500/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+      <div className="starfield-dust pointer-events-none absolute inset-0 -z-10 opacity-50" />
 
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
           <p className="section-kicker justify-center">Start a conversation</p>
           <h2 className="section-heading">
-            Let&apos;s <span className="gradient-pastel-text">Connect</span>
+            Let&apos;s <span className="gradient-lantern-text font-display">Connect</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-center text-base sm:text-lg leading-relaxed text-[#6B6570]">
+          <p className="mx-auto max-w-2xl text-center text-base sm:text-lg leading-relaxed text-mist">
             Have an exciting project, full-time role, or contract in mind? Let&apos;s collaborate and build something remarkable together.
           </p>
         </div>
@@ -78,68 +79,68 @@ export default function Contact() {
           {/* Contact Info (2 cols) */}
           <div className="md:col-span-2 space-y-4">
             {/* Email Card */}
-            <div className="rounded-[24px] bg-white/90 p-5 sm:p-6 border border-[#C9B8FF]/60 shadow-soft backdrop-blur-xl hover:shadow-pastel-lavender transition-all">
+            <div className="rounded-[24px] bg-night-900/55 p-5 sm:p-6 border border-lantern-500/30 shadow-soft backdrop-blur-xl hover:shadow-lantern transition-all">
               <div className="flex items-center gap-3.5 mb-2">
-                <div className="w-10 h-10 rounded-xl bg-[#C9B8FF]/35 text-[#7C5CFF] flex items-center justify-center shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-lantern-500/20 text-lantern-300 flex items-center justify-center shadow-sm">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-sm font-extrabold text-[#2D2A32]">Email Me</h3>
-                  <p className="text-[11px] text-[#6B6570] font-medium">Direct inbox access</p>
+                  <h3 className="font-heading text-sm font-bold text-ink">Email Me</h3>
+                  <p className="text-[11px] text-mist-400 font-medium">Direct inbox access</p>
                 </div>
               </div>
               <a
                 href="mailto:kumarley.tejas7@gmail.com"
-                className="text-xs sm:text-sm font-semibold text-[#7C5CFF] hover:text-[#DB2777] transition-colors break-all block mt-2"
+                className="text-xs sm:text-sm font-bold text-lantern-300 hover:text-lantern-200 transition-colors break-all block mt-2"
               >
                 kumarley.tejas7@gmail.com
               </a>
             </div>
 
             {/* Phone Card */}
-            <div className="rounded-[24px] bg-white/90 p-5 sm:p-6 border border-[#B8F2E6]/60 shadow-soft backdrop-blur-xl hover:shadow-pastel-mint transition-all">
+            <div className="rounded-[24px] bg-night-900/55 p-5 sm:p-6 border border-spirit-400/30 shadow-soft backdrop-blur-xl hover:shadow-spirit-glow transition-all">
               <div className="flex items-center gap-3.5 mb-2">
-                <div className="w-10 h-10 rounded-xl bg-[#B8F2E6]/40 text-[#0D9488] flex items-center justify-center shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-spirit-500/20 text-spirit-300 flex items-center justify-center shadow-sm">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-sm font-extrabold text-[#2D2A32]">Call / WhatsApp</h3>
-                  <p className="text-[11px] text-[#6B6570] font-medium">Mon - Fri, 9am - 7pm IST</p>
+                  <h3 className="font-heading text-sm font-bold text-ink">Call / WhatsApp</h3>
+                  <p className="text-[11px] text-mist-400 font-medium">Mon - Fri, 9am - 7pm IST</p>
                 </div>
               </div>
               <a
                 href="tel:+916354352713"
-                className="text-xs sm:text-sm font-semibold text-[#0D9488] hover:text-[#047857] transition-colors block mt-2"
+                className="text-xs sm:text-sm font-bold text-spirit-300 hover:text-spirit-200 transition-colors block mt-2"
               >
                 +91 63543 52713
               </a>
             </div>
 
             {/* Location Card */}
-            <div className="rounded-[24px] bg-white/90 p-5 sm:p-6 border border-[#FFD6BA]/60 shadow-soft backdrop-blur-xl hover:shadow-pastel-peach transition-all">
+            <div className="rounded-[24px] bg-night-900/55 p-5 sm:p-6 border border-sea-300/30 shadow-soft backdrop-blur-xl hover:shadow-sea-glow transition-all">
               <div className="flex items-center gap-3.5 mb-2">
-                <div className="w-10 h-10 rounded-xl bg-[#FFD6BA]/40 text-[#EA580C] flex items-center justify-center shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-sea-500/25 text-sea-200 flex items-center justify-center shadow-sm">
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <h3 className="font-heading text-sm font-extrabold text-[#2D2A32]">Location</h3>
-                  <p className="text-[11px] text-[#6B6570] font-medium">Open to remote & relocation</p>
+                  <h3 className="font-heading text-sm font-bold text-ink">Location</h3>
+                  <p className="text-[11px] text-mist-400 font-medium">Open to remote &amp; relocation</p>
                 </div>
               </div>
-              <p className="text-xs sm:text-sm font-semibold text-[#2D2A32] mt-2">
+              <p className="text-xs sm:text-sm font-bold text-ink mt-2">
                 Vadodara, Gujarat, India
               </p>
             </div>
 
             {/* Social Links Card */}
-            <div className="rounded-[24px] bg-white/90 p-5 sm:p-6 border border-[#FFC8DD]/60 shadow-soft backdrop-blur-xl hover:shadow-pastel-pink transition-all">
-              <h3 className="font-heading text-sm font-extrabold text-[#2D2A32] mb-3">Online Profiles</h3>
+            <div className="rounded-[24px] bg-night-900/55 p-5 sm:p-6 border border-sakura-400/30 shadow-soft backdrop-blur-xl hover:shadow-lantern transition-all">
+              <h3 className="font-heading text-sm font-bold text-ink mb-3">Online Profiles</h3>
               <div className="flex gap-2.5">
                 <a
                   href="https://www.linkedin.com/in/tejas-kumarley-324475220/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#BDE0FE]/30 hover:bg-[#BDE0FE]/50 text-[#2563EB] text-xs font-bold border border-[#BDE0FE] shadow-sm transition-all"
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-sea-500/20 hover:bg-sea-500/35 text-sea-200 text-xs font-bold border border-sea-300/30 shadow-sm transition-all"
                 >
                   <span>LinkedIn</span>
                   <ArrowUpRight size={13} />
@@ -148,7 +149,7 @@ export default function Contact() {
                   href="https://github.com/tejas-exe"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#C9B8FF]/30 hover:bg-[#C9B8FF]/50 text-[#7C5CFF] text-xs font-bold border border-[#C9B8FF] shadow-sm transition-all"
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-lantern-500/15 hover:bg-lantern-500/30 text-lantern-300 text-xs font-bold border border-lantern-500/30 shadow-sm transition-all"
                 >
                   <span>GitHub</span>
                   <ArrowUpRight size={13} />
@@ -159,16 +160,16 @@ export default function Contact() {
 
           {/* Contact Form (3 cols) */}
           <div className="md:col-span-3">
-            <form onSubmit={handleSubmit} className="rounded-[32px] bg-white/95 p-6 sm:p-8 border border-white shadow-soft-lg backdrop-blur-2xl space-y-4">
-              <div className="flex items-center gap-2 mb-2 pb-3 border-b border-[#2D2A32]/8">
-                <MessageSquare className="w-4 h-4 text-[#7C5CFF]" />
-                <h3 className="font-heading text-base font-extrabold text-[#2D2A32]">
+            <form onSubmit={handleSubmit} className="rounded-[32px] bg-night-950/65 p-6 sm:p-8 border border-sea-300/25 shadow-soft-lg backdrop-blur-2xl space-y-4">
+              <div className="flex items-center gap-2 mb-2 pb-3 border-b border-sea-300/15">
+                <MessageSquare className="w-4 h-4 text-lantern-300" />
+                <h3 className="font-heading text-base font-bold text-ink">
                   Send a Direct Message
                 </h3>
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#2D2A32] mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-mist mb-2">
                   Your Name
                 </label>
                 <input
@@ -177,13 +178,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="input-field-pastel"
-                  placeholder="e.g. Alex Johnson"
+                  className="input-field-sea"
+                  placeholder="e.g. Chihiro Ogino"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#2D2A32] mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-mist mb-2">
                   Email Address
                 </label>
                 <input
@@ -192,13 +193,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="input-field-pastel"
-                  placeholder="alex@company.com"
+                  className="input-field-sea"
+                  placeholder="you@company.com"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#2D2A32] mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-mist mb-2">
                   Subject
                 </label>
                 <input
@@ -207,13 +208,13 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="input-field-pastel"
+                  className="input-field-sea"
                   placeholder="Project Collaboration / Opportunity"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#2D2A32] mb-2">
+                <label className="block text-xs font-bold uppercase tracking-wider text-mist mb-2">
                   Message
                 </label>
                 <textarea
@@ -222,7 +223,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="input-field-pastel resize-none"
+                  className="input-field-sea resize-none"
                   placeholder="Tell me about your project, timeline, and tech stack..."
                 ></textarea>
               </div>
@@ -230,7 +231,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="btn-primary-pastel w-full text-sm font-bold gap-2 py-4 disabled:opacity-50 mt-2"
+                className="btn-primary-lantern w-full text-sm font-bold gap-2 py-4 disabled:opacity-50 mt-2"
               >
                 {status === 'loading' ? (
                   <span>Sending message via Nodemailer...</span>
@@ -246,14 +247,14 @@ export default function Contact() {
                 <div
                   className={`p-4 rounded-2xl flex gap-3 ${
                     status === 'success'
-                      ? 'bg-[#B8F2E6]/30 text-[#0D9488] border border-[#B8F2E6]'
-                      : 'bg-[#FFC8DD]/30 text-[#DB2777] border border-[#FFC8DD]'
+                      ? 'bg-spirit-500/15 text-spirit-300 border border-spirit-400/40'
+                      : 'bg-sakura-500/15 text-sakura-300 border border-sakura-400/40'
                   }`}
                 >
                   {status === 'success' ? (
-                    <CheckCircle size={20} className="flex-shrink-0 mt-0.5 text-[#0D9488]" />
+                    <CheckCircle size={20} className="flex-shrink-0 mt-0.5 text-spirit-300" />
                   ) : (
-                    <AlertCircle size={20} className="flex-shrink-0 mt-0.5 text-[#DB2777]" />
+                    <AlertCircle size={20} className="flex-shrink-0 mt-0.5 text-sakura-300" />
                   )}
                   <p className="text-xs sm:text-sm font-semibold leading-relaxed">{message}</p>
                 </div>
