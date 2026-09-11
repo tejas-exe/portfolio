@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowDown, ArrowRight, Github, Linkedin, Mail, Sparkles, Code2, Download, FileText } from 'lucide-react'
+import { ArrowDown, ArrowRight, Github, Linkedin, Mail, Sparkles, Code2, Download } from 'lucide-react'
 import SplitFlapText from './SplitFlapText'
 
 export default function Hero() {
