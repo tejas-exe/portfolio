@@ -2,12 +2,6 @@
 
 import { useState } from 'react'
 import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin, MessageSquare, ArrowUpRight } from 'lucide-react'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || ''
-)
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -32,17 +26,19 @@ export default function Contact() {
     setStatus('loading')
 
     try {
-      const { error } = await supabase.from('contact_messages').insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          created_at: new Date().toISOString(),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ])
+        body: JSON.stringify(formData),
+      })
 
-      if (error) throw error
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
 
       setStatus('success')
       setMessage("Message sent successfully! I'll get back to you within 24 hours.")
@@ -52,9 +48,9 @@ export default function Contact() {
         setStatus('idle')
         setMessage('')
       }, 6000)
-    } catch (err) {
+    } catch (err: any) {
       setStatus('error')
-      setMessage('Failed to send message. Please try again or email me directly.')
+      setMessage(err?.message || 'Failed to send message. Please try again or email me directly.')
       setTimeout(() => {
         setStatus('idle')
         setMessage('')
@@ -140,7 +136,7 @@ export default function Contact() {
               <h3 className="font-heading text-sm font-extrabold text-[#2D2A32] mb-3">Online Profiles</h3>
               <div className="flex gap-2.5">
                 <a
-                  href="https://linkedin.com/in/tejas-kumarley"
+                  href="https://www.linkedin.com/in/tejas-kumarley-324475220/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#BDE0FE]/30 hover:bg-[#BDE0FE]/50 text-[#2563EB] text-xs font-bold border border-[#BDE0FE] shadow-sm transition-all"
@@ -149,7 +145,7 @@ export default function Contact() {
                   <ArrowUpRight size={13} />
                 </a>
                 <a
-                  href="https://github.com/tejaskumarley"
+                  href="https://github.com/tejas-exe"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-[#C9B8FF]/30 hover:bg-[#C9B8FF]/50 text-[#7C5CFF] text-xs font-bold border border-[#C9B8FF] shadow-sm transition-all"
@@ -237,7 +233,7 @@ export default function Contact() {
                 className="btn-primary-pastel w-full text-sm font-bold gap-2 py-4 disabled:opacity-50 mt-2"
               >
                 {status === 'loading' ? (
-                  <span>Sending message...</span>
+                  <span>Sending message via Nodemailer...</span>
                 ) : (
                   <>
                     <span>Send Message</span>

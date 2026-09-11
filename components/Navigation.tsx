@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Sparkles, Send } from 'lucide-react'
+import { Menu, X, Sparkles, Send, Download } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -51,12 +51,12 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-1.5 bg-white/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/80 shadow-soft">
+        <div className="hidden md:flex items-center gap-1 bg-white/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/80 shadow-soft">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="px-4 py-2 rounded-full text-sm font-semibold text-[#6B6570] hover:text-[#2D2A32] hover:bg-[#C9B8FF]/20 transition-all duration-200"
+              className="px-3.5 py-1.5 rounded-full text-xs lg:text-sm font-semibold text-[#6B6570] hover:text-[#2D2A32] hover:bg-[#C9B8FF]/20 transition-all duration-200"
             >
               {link.label}
             </a>
@@ -64,10 +64,21 @@ export default function Navigation() {
         </div>
 
         {/* Right CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2.5">
+          <a
+            href="/Tejas_Kumarley_Resume_2026.pdf"
+            download="Tejas_Kumarley_Resume_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 rounded-full border border-[#C9B8FF]/80 bg-white/80 hover:bg-[#C9B8FF]/20 px-4 py-2 text-xs font-bold text-[#7C5CFF] shadow-soft transition-all duration-200"
+          >
+            <Download size={13} />
+            <span>CV</span>
+          </a>
+
           <a
             href="#contact"
-            className="btn-primary-pastel !px-5 !py-2.5 text-xs font-bold gap-2"
+            className="btn-primary-pastel !px-4 !py-2 text-xs font-bold gap-1.5"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#7C5CFF]" />
             <span>Let&apos;s Talk</span>
@@ -98,7 +109,18 @@ export default function Navigation() {
                   {link.label}
                 </a>
               ))}
-              <div className="pt-2 mt-2 border-t border-[#2D2A32]/10">
+              <div className="pt-3 mt-1 border-t border-[#2D2A32]/10 flex flex-col gap-2">
+                <a
+                  href="/Tejas_Kumarley_Resume_2026.pdf"
+                  download="Tejas_Kumarley_Resume_2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 rounded-full border border-[#C9B8FF] bg-[#C9B8FF]/20 px-4 py-3 text-xs font-bold text-[#7C5CFF] shadow-soft"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Download size={14} />
+                  <span>Download Resume / CV</span>
+                </a>
                 <a
                   href="#contact"
                   className="btn-primary-pastel w-full text-center text-xs font-bold gap-2"

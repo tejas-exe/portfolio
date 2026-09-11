@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <a
-              href="https://linkedin.com/in/tejas-kumarley"
+              href="https://www.linkedin.com/in/tejas-kumarley-324475220/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#6B6570] hover:text-[#7C5CFF] transition-colors text-xs sm:text-sm font-semibold"
@@ -33,7 +33,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a
-              href="https://github.com/tejaskumarley"
+              href="https://github.com/tejas-exe"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#6B6570] hover:text-[#7C5CFF] transition-colors text-xs sm:text-sm font-semibold"

@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowDown, ArrowRight, Github, Linkedin, Mail, Sparkles, Code2 } from 'lucide-react'
+import { ArrowDown, ArrowRight, Github, Linkedin, Mail, Sparkles, Code2, Download, FileText } from 'lucide-react'
 import SplitFlapText from './SplitFlapText'
 
 export default function Hero() {
@@ -98,8 +98,8 @@ export default function Hero() {
               4+ years crafting production systems that drive business impact.
             </p>
 
-            {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start mb-10">
+            {/* CTA buttons with Download CV */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3.5 justify-center lg:justify-start mb-10">
               <a
                 href="#projects"
                 className="btn-primary-pastel flex items-center justify-center gap-2 group text-sm"
@@ -107,6 +107,18 @@ export default function Hero() {
                 <span>View My Work</span>
                 <ArrowRight className="group-hover:translate-x-1.5 transition-transform" size={18} />
               </a>
+
+              <a
+                href="/Tejas_Kumarley_Resume_2026.pdf"
+                download="Tejas_Kumarley_Resume_2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#C9B8FF]/80 bg-[#C9B8FF]/20 hover:bg-[#C9B8FF]/35 px-6 py-3.5 text-sm font-bold text-[#7C5CFF] hover:text-[#5833EA] shadow-soft hover:shadow-pastel-lavender transition-all duration-300"
+              >
+                <Download size={16} />
+                <span>Download CV</span>
+              </a>
+
               <a href="#contact" className="btn-outline-pastel text-sm">
                 Get In Touch
               </a>
@@ -131,7 +143,7 @@ export default function Hero() {
             {/* Social links */}
             <div className="flex justify-center gap-3 mt-8 lg:justify-start">
               <a
-                href="https://github.com/tejaskumarley"
+                href="https://github.com/tejas-exe"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub profile"
@@ -140,7 +152,7 @@ export default function Hero() {
                 <Github size={20} className="text-[#2D2A32]" />
               </a>
               <a
-                href="https://linkedin.com/in/tejas-kumarley"
+                href="https://www.linkedin.com/in/tejas-kumarley-324475220/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"
