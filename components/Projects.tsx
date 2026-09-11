@@ -2,17 +2,14 @@
 
 import { useState } from 'react'
 import {
-  Github,
   Layers,
   Sparkles,
-  CheckCircle2,
   Maximize2,
   X,
   Code2,
   Cpu,
   Globe,
   Database,
-  ArrowUpRight,
 } from 'lucide-react'
 
 type ProjectCategory = 'All' | 'Enterprise & Cloud' | 'Full-Stack' | 'Web Apps' | 'APIs & Automation' | 'Healthcare'
@@ -350,14 +347,12 @@ export default function Projects() {
         {/* Projects Grid */}
         <div className="grid gap-7 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project) => {
-            const hasLiveLink = Boolean(project.link && project.link !== '#')
-            const hasGithub = Boolean(project.github && project.github !== '#')
             const style = categoryStyles[project.category] || categoryStyles['Full-Stack']
 
             return (
               <div
                 key={project.title}
-                className={`group flex flex-col justify-between rounded-[28px] bg-night-900/55 p-5 sm:p-6 backdrop-blur-xl border ${style.border} ${style.hoverBorder} ${style.glowShadow} shadow-soft hover:-translate-y-1.5 transition-all duration-300`}
+                className={`group flex flex-col rounded-[28px] bg-night-900/55 p-5 sm:p-6 backdrop-blur-xl border ${style.border} ${style.hoverBorder} ${style.glowShadow} shadow-soft hover:-translate-y-1.5 transition-all duration-300`}
               >
                 <div>
                   {/* Project Image Preview with Overlay */}
@@ -437,47 +432,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Footer Links */}
-                <div className="pt-4 border-t border-sea-300/15 flex items-center justify-between mt-2">
-                  <div className="flex items-center gap-2.5">
-                    {hasLiveLink ? (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-bold text-night-950 hover:text-night-950 transition-colors px-3 py-1.5 rounded-xl bg-gradient-to-r from-lantern-300 to-lantern-500 hover:shadow-lantern border border-lantern-200/80"
-                      >
-                        <span>Visit Live</span>
-                        <ArrowUpRight size={13} />
-                      </a>
-                    ) : (
-                      <span className="text-xs font-semibold text-mist flex items-center gap-1.5">
-                        <CheckCircle2 size={13} className="text-spirit-400" />
-                        Production Shipped
-                      </span>
-                    )}
-
-                    {hasGithub && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-semibold text-mist hover:text-ink transition-colors px-2 py-1 rounded-lg hover:bg-sea-300/10"
-                      >
-                        <Github size={13} />
-                        <span>Source</span>
-                      </a>
-                    )}
-                  </div>
-
-                  <button
-                    onClick={() => setSelectedImage({ src: project.image, title: project.title })}
-                    className="text-[11px] text-mist hover:text-lantern-300 transition-colors font-semibold flex items-center gap-1"
-                  >
-                    <span>Preview</span>
-                    <Maximize2 size={11} />
-                  </button>
-                </div>
               </div>
             )
           })}

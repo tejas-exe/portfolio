@@ -214,17 +214,6 @@ export default function Hero() {
                 loading="eager"
               />
 
-              {/* Floating badge — top right (Senior Engineer) */}
-              <div className="absolute -top-2 -right-2 sm:-right-6 flex items-center gap-1.5 rounded-full border border-lantern-400/50 bg-night-950/90 px-3.5 py-1.5 text-xs font-bold text-lantern-300 backdrop-blur-md shadow-lantern">
-                <Sparkles size={13} />
-                <span>Senior Engineer</span>
-              </div>
-
-              {/* Floating badge — bottom left (Open to Work) */}
-              <div className="absolute -bottom-2 -left-2 sm:-left-6 flex items-center gap-2 rounded-full border border-spirit-400/50 bg-night-950/90 px-3.5 py-1.5 text-xs font-bold text-spirit-300 backdrop-blur-md shadow-spirit-glow">
-                <span className="h-2 w-2 rounded-full bg-spirit-400 animate-pulse" />
-                <span>Open to Work</span>
-              </div>
             </div>
 
             {/* Name + title floating under the cutout */}
