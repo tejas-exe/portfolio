@@ -4,6 +4,7 @@ import Image from 'next/image'
 export default function Hero() {
   return (
     <section id="home" className="hero">
+      <div className="hero-wash" aria-hidden="true" />
       {[0, 1, 2, 3, 4, 5].map(i => <span key={i} className={`floating-leaf leaf-${i}`} aria-hidden="true" />)}
       <div className="hero-copy shell">
         <div className="hero-writing">
