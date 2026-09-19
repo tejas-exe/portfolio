@@ -1,6 +1,4 @@
-'use client'
-
-import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react'
+import { MapPin, ArrowUpRight, Compass } from 'lucide-react'
 
 const experience = [
   {
@@ -65,88 +63,10 @@ const experience = [
   },
 ]
 
+
 export default function Experience() {
-  return (
-    <section id="experience" className="relative px-4 py-20 sm:px-6 sm:py-28 overflow-hidden">
-      {/* Background ambient night mist */}
-      <div className="absolute top-1/2 left-10 -translate-y-1/2 w-[550px] h-[550px] bg-sea-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="starfield-dust pointer-events-none absolute inset-0 -z-10 opacity-40" />
-
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center md:text-left mb-14">
-          <p className="section-kicker">Career Journey &amp; Milestones</p>
-          <h2 className="section-heading">
-            Work <span className="gradient-river-text font-display">Experience</span>
-          </h2>
-          <p className="text-mist max-w-xl text-base sm:text-lg">
-            A track record of shipping enterprise software, high-throughput APIs, and modern web applications across startups and global teams.
-          </p>
-        </div>
-
-        {/* Timeline Container — the river path */}
-        <div className="relative pl-6 sm:pl-10">
-          {/* Continuous river-gradient vertical line */}
-          <div
-            className="absolute left-[11px] sm:left-[19px] top-4 bottom-4 w-1 rounded-full bg-gradient-to-b from-lantern-400 via-spirit-400 via-sea-400 to-noface"
-            style={{ boxShadow: '0 0 12px rgba(74, 141, 190, 0.4)' }}
-          />
-
-          <div className="space-y-8 sm:space-y-12">
-            {experience.map((job, index) => (
-              <div key={index} className="relative group">
-                {/* Milestone Node — glowing lantern dot */}
-                <div
-                  className={`absolute -left-[30px] sm:-left-[39px] top-6 w-5 h-5 rounded-full ${job.dotColor} ring-4 ring-night-950 transition-transform duration-300 group-hover:scale-125`}
-                />
-
-                {/* Card */}
-                <div className="rounded-[28px] bg-night-900/55 p-6 sm:p-8 border border-sea-300/20 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 backdrop-blur-xl transition-all duration-300">
-                  <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <Briefcase size={16} className="text-lantern-300" />
-                        <h3 className="font-heading text-xl font-bold text-ink sm:text-2xl">
-                          {job.role}
-                        </h3>
-                      </div>
-                      <p className="text-base font-bold text-ink">{job.company}</p>
-                      <div className="flex items-center gap-1.5 text-xs font-semibold text-mist-400 mt-1">
-                        <MapPin size={13} className="text-sakura-300" />
-                        <span>{job.location}</span>
-                      </div>
-                    </div>
-
-                    <span
-                      className={`inline-flex items-center gap-1.5 w-fit rounded-full px-4 py-1.5 text-xs font-bold border shadow-sm backdrop-blur-md ${job.badgeColor}`}
-                    >
-                      <Calendar size={12} />
-                      {job.period}
-                    </span>
-                  </div>
-
-                  <p className="text-mist mb-5 leading-relaxed text-sm sm:text-base font-normal">
-                    {job.description}
-                  </p>
-
-                  <div className="pt-4 border-t border-sea-300/15">
-                    <h4 className="text-xs font-bold text-lantern-300 uppercase tracking-wider mb-3">
-                      ✦ Key Highlights &amp; Impact:
-                    </h4>
-                    <ul className="space-y-2">
-                      {job.achievements.map((achievement, i) => (
-                        <li key={i} className="text-mist text-xs sm:text-sm flex items-start gap-2.5">
-                          <CheckCircle2 size={15} className="text-spirit-400 flex-shrink-0 mt-0.5" />
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+  return <section id="experience" className="experience-section section-space"><div className="shell experience-layout">
+    <div className="journey-intro" data-reveal="up"><p className="eyebrow">03 / The trail so far</p><h2>Every chapter,<br /><em>a little growth.</em></h2><p>A track record of shipping enterprise software, high-throughput APIs, and modern web applications across startups and global teams.</p><div className="compass-art" aria-hidden="true"><span>N</span><Compass size={110} strokeWidth={.6} /><span className="handwritten">Onward &amp; upward</span></div><a className="text-link" href="/Tejas_Kumarley_Resume_2026.pdf" download>The full story — download CV <ArrowUpRight size={16} /></a></div>
+    <ol className="career-trail">{experience.map((job, index) => <li key={job.company} data-reveal="right"><span className="trail-marker" aria-hidden="true">{index === 0 ? '✦' : '•'}</span><div className="job-meta"><span>{job.period}</span>{index === 0 && <span className="current-label">Current chapter</span>}</div><h3>{job.company}</h3><p className="job-role">{job.role}</p><p className="job-location"><MapPin size={13} />{job.location}</p><p className="job-description">{job.description}</p><ul>{job.achievements.map(item => <li key={item}>{item}</li>)}</ul></li>)}</ol>
+  </div></section>
 }

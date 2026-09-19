@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230A1830' stroke='%23F5C542' stroke-width='4'/><circle cx='35' cy='42' r='5' fill='%23EAF4FB'/><circle cx='65' cy='42' r='5' fill='%23EAF4FB'/><path d='M35 65 Q50 74 65 65' stroke='%23F5C542' stroke-width='5' fill='none' stroke-linecap='round'/></svg>"
         />
       </head>
-      <body className="bg-night-900 text-ink antialiased selection:bg-lantern-500/40 selection:text-[#FFF9EC]">
+      <body>
         {children}
       </body>
     </html>

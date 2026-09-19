@@ -1,88 +1,9 @@
 'use client'
-
-import { useState } from 'react'
-import {
-  Layers,
-  Sparkles,
-  Maximize2,
-  X,
-  Code2,
-  Cpu,
-  Globe,
-  Database,
-} from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import { ArrowUpRight, Maximize2, Sprout, X } from 'lucide-react'
 
 type ProjectCategory = 'All' | 'Enterprise & Cloud' | 'Full-Stack' | 'Web Apps' | 'APIs & Automation' | 'Healthcare'
-
-interface CategoryStyle {
-  border: string
-  hoverBorder: string
-  badgeBg: string
-  badgeText: string
-  badgeBorder: string
-  chipBg: string
-  chipText: string
-  chipBorder: string
-  glowShadow: string
-}
-
-const categoryStyles: Record<string, CategoryStyle> = {
-  'Enterprise & Cloud': {
-    border: 'border-spirit-400/30',
-    hoverBorder: 'hover:border-spirit-400/70',
-    badgeBg: 'bg-spirit-500/20',
-    badgeText: 'text-spirit-300',
-    badgeBorder: 'border-spirit-400/40',
-    chipBg: 'bg-spirit-500/15',
-    chipText: 'text-spirit-300',
-    chipBorder: 'border-spirit-400/30',
-    glowShadow: 'hover:shadow-spirit-glow',
-  },
-  'Web Apps': {
-    border: 'border-sea-300/30',
-    hoverBorder: 'hover:border-sea-300/70',
-    badgeBg: 'bg-sea-500/25',
-    badgeText: 'text-sea-200',
-    badgeBorder: 'border-sea-300/40',
-    chipBg: 'bg-sea-500/20',
-    chipText: 'text-sea-200',
-    chipBorder: 'border-sea-300/30',
-    glowShadow: 'hover:shadow-sea-glow',
-  },
-  'Full-Stack': {
-    border: 'border-lantern-500/30',
-    hoverBorder: 'hover:border-lantern-400/70',
-    badgeBg: 'bg-lantern-500/20',
-    badgeText: 'text-lantern-300',
-    badgeBorder: 'border-lantern-500/40',
-    chipBg: 'bg-lantern-500/15',
-    chipText: 'text-lantern-300',
-    chipBorder: 'border-lantern-500/30',
-    glowShadow: 'hover:shadow-lantern',
-  },
-  'APIs & Automation': {
-    border: 'border-noface/40',
-    hoverBorder: 'hover:border-noface-300',
-    badgeBg: 'bg-noface/25',
-    badgeText: 'text-noface-300',
-    badgeBorder: 'border-noface-300/40',
-    chipBg: 'bg-noface/20',
-    chipText: 'text-noface-300',
-    chipBorder: 'border-noface-300/30',
-    glowShadow: 'hover:shadow-sea-glow',
-  },
-  'Healthcare': {
-    border: 'border-sakura-400/30',
-    hoverBorder: 'hover:border-sakura-300/70',
-    badgeBg: 'bg-sakura-500/20',
-    badgeText: 'text-sakura-300',
-    badgeBorder: 'border-sakura-400/40',
-    chipBg: 'bg-sakura-500/15',
-    chipText: 'text-sakura-300',
-    chipBorder: 'border-sakura-400/30',
-    glowShadow: 'hover:shadow-lantern',
-  },
-}
 
 interface Project {
   title: string
@@ -262,235 +183,50 @@ const projects: Project[] = [
   },
 ]
 
-const categories: { label: ProjectCategory; icon: any; color: string }[] = [
-  { label: 'All', icon: Layers, color: 'text-lantern-300' },
-  { label: 'Enterprise & Cloud', icon: Cpu, color: 'text-spirit-300' },
-  { label: 'Full-Stack', icon: Database, color: 'text-lantern-400' },
-  { label: 'Web Apps', icon: Globe, color: 'text-sea-200' },
-  { label: 'APIs & Automation', icon: Code2, color: 'text-noface-300' },
-  { label: 'Healthcare', icon: Sparkles, color: 'text-sakura-300' },
-]
+
+const categories: ProjectCategory[] = ['All', 'Enterprise & Cloud', 'Full-Stack', 'Web Apps', 'APIs & Automation', 'Healthcare']
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('All')
-  const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null)
-
-  const filteredProjects =
-    activeCategory === 'All'
-      ? projects
-      : projects.filter((p) => p.category === activeCategory)
-
-  return (
-    <section id="projects" className="relative px-4 py-20 sm:px-6 sm:py-28 overflow-hidden">
-      {/* Background ambient night mists */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-sea-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-10 w-[500px] h-[350px] bg-spirit-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-      {/* Star dust layer */}
-      <div className="starfield-dust pointer-events-none absolute inset-0 -z-10 opacity-60" />
-
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div>
-            <p className="section-kicker">Featured Portfolio</p>
-            <h2 className="section-heading mb-3">
-              Crafted <span className="gradient-lantern-text font-display">Projects &amp; Systems</span>
-            </h2>
-            <p className="text-mist max-w-2xl text-base sm:text-lg leading-relaxed font-normal">
-              A showcase of scalable full-stack applications, enterprise platforms, real-time dashboards, and automation pipelines built for high performance.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="px-4 py-2 rounded-full border border-lantern-500/40 bg-night-900/80 text-lantern-300 text-xs font-bold shadow-soft backdrop-blur-md">
-              ✦ {projects.length} Production Projects
-            </span>
-          </div>
-        </div>
-
-        {/* Category Filters */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-          {categories.map((cat) => {
-            const Icon = cat.icon
-            const count =
-              cat.label === 'All'
-                ? projects.length
-                : projects.filter((p) => p.category === cat.label).length
-            const isActive = activeCategory === cat.label
-
-            return (
-              <button
-                key={cat.label}
-                onClick={() => setActiveCategory(cat.label)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 whitespace-nowrap backdrop-blur-md ${
-                  isActive
-                    ? 'bg-gradient-to-r from-lantern-300 to-lantern-500 text-[#1A1206] shadow-lantern scale-[1.02] border border-lantern-200'
-                    : 'border border-sea-300/20 bg-night-900/70 text-mist hover:text-ink hover:bg-night-800/80 hover:border-lantern-500/40 shadow-soft'
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#1A1206]' : cat.color}`} />
-                <span>{cat.label}</span>
-                <span
-                  className={`ml-1 text-[11px] px-2 py-0.5 rounded-full font-bold ${
-                    isActive
-                      ? 'bg-night-950/20 text-[#1A1206]'
-                      : 'bg-sea-300/10 text-mist-400'
-                  }`}
-                >
-                  {count}
-                </span>
+  const [category, setCategory] = useState<ProjectCategory>('All')
+  const [selected, setSelected] = useState<Project | null>(null)
+  const dialog = useRef<HTMLDialogElement>(null)
+  useEffect(() => {
+    if (!selected) return
+    const element = dialog.current
+    const previousOverflow = document.body.style.overflow
+    element?.showModal()
+    document.body.style.overflow = 'hidden'
+    return () => { element?.close(); document.body.style.overflow = previousOverflow }
+  }, [selected])
+  const filtered = category === 'All' ? projects : projects.filter(project => project.category === category)
+  return <section id="projects" className="projects-section section-space">
+    <div className="shell">
+      <div className="section-top" data-reveal="up"><div><p className="eyebrow">01 / The field journal</p><h2>Ideas planted.<br /><em>Real things built.</em></h2></div><div className="section-aside"><p>Full-stack applications, enterprise platforms, and little pieces of a bigger picture.</p><span className="handwritten">A collection of {projects.length} projects ↙</span></div></div>
+      <div className="filter-bar" role="group" aria-label="Filter projects">{categories.map(item => <button key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}{item === 'All' && <span>{projects.length}</span>}</button>)}</div>
+      <p className="sr-only" aria-live="polite">{filtered.length} projects shown</p>
+      <div className="project-grid">
+        {filtered.map((project, index) => <article key={project.title} className="project-entry" data-reveal={index % 2 ? 'right' : 'up'}>
+          <div className="project-paper">
+            <div className="project-image-wrap">
+              <button className="project-preview" onClick={() => setSelected(project)} aria-label={`Enlarge preview of ${project.title}`}>
+                <Image src={project.image} alt={project.title} fill sizes="(max-width: 650px) 90vw, (max-width: 980px) 45vw, 560px" className="project-image" />
+                <span className="image-zoom"><Maximize2 size={16} /> Explore preview</span>
               </button>
-            )
-          })}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid gap-7 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project) => {
-            const style = categoryStyles[project.category] || categoryStyles['Full-Stack']
-
-            return (
-              <div
-                key={project.title}
-                className={`group flex flex-col rounded-[28px] bg-night-900/55 p-5 sm:p-6 backdrop-blur-xl border ${style.border} ${style.hoverBorder} ${style.glowShadow} shadow-soft hover:-translate-y-1.5 transition-all duration-300`}
-              >
-                <div>
-                  {/* Project Image Preview with Overlay */}
-                  <div className="relative mb-5 overflow-hidden rounded-[20px] border border-sea-300/15 bg-night-950/60 aspect-[16/9] shadow-inner">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.style.display = 'none'
-                      }}
-                    />
-
-                    {/* Badge */}
-                    <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                      <span
-                        className={`text-[11px] font-bold px-3 py-1 rounded-full border backdrop-blur-md shadow-sm ${style.badgeBg} ${style.badgeText} ${style.badgeBorder}`}
-                      >
-                        {project.badge}
-                      </span>
-                    </div>
-
-                    {/* Image Preview / Zoom button */}
-                    <button
-                      onClick={() => setSelectedImage({ src: project.image, title: project.title })}
-                      title="View full preview"
-                      className="absolute top-3 right-3 p-2 rounded-xl bg-night-950/80 text-ink hover:bg-night-900 backdrop-blur-md opacity-0 group-hover:opacity-100 shadow-soft transition-all"
-                    >
-                      <Maximize2 className="w-3.5 h-3.5" />
-                    </button>
-
-                    {/* Subtitle bottom banner */}
-                    {project.subtitle && (
-                      <div className="absolute bottom-2.5 left-3 right-3 text-xs font-semibold text-ink drop-shadow-[0_1px_3px_rgba(3,10,24,0.95)] truncate">
-                        {project.subtitle}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Tech Stack Pills */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className={`px-2.5 py-1 text-[11px] font-bold rounded-lg border ${style.chipBg} ${style.chipText} ${style.chipBorder}`}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Project Title */}
-                  <h3 className="mb-2 font-heading text-lg font-bold leading-snug text-ink transition-colors group-hover:text-lantern-300">
-                    {project.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-mist text-sm mb-4 leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="mb-5 pt-3.5 border-t border-sea-300/15">
-                    <h4 className="text-xs font-bold text-lantern-300 uppercase tracking-wider mb-2.5">
-                      ✦ Key Highlights
-                    </h4>
-                    <ul className="space-y-1.5">
-                      {project.highlights.slice(0, 3).map((highlight, i) => (
-                        <li key={i} className="text-xs text-mist flex items-start gap-2 leading-tight">
-                          <span className="text-spirit-400 font-bold text-sm leading-none mt-0.5">›</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Lightbox Modal */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-night-950/85 p-4 backdrop-blur-md animate-fadeIn"
-            onClick={() => setSelectedImage(null)}
-          >
-            <div
-              className="relative max-w-5xl w-full max-h-[90vh] bg-night-950/85 border border-sea-300/25 rounded-[32px] overflow-hidden shadow-soft-lg flex flex-col backdrop-blur-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-sea-300/15 bg-night-950/80 backdrop-blur-md">
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-lantern-400 animate-pulse shadow-lantern" />
-                  <h3 className="font-heading font-bold text-ink text-base sm:text-lg">
-                    {selectedImage.title}
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setSelectedImage(null)}
-                  className="p-2 rounded-xl bg-night-800 hover:bg-lantern-500/20 text-ink shadow-soft transition"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Modal Image */}
-              <div className="p-4 sm:p-6 flex items-center justify-center overflow-auto bg-night-950/60">
-                <img
-                  src={selectedImage.src}
-                  alt={selectedImage.title}
-                  className="max-h-[75vh] w-auto max-w-full rounded-2xl object-contain shadow-soft-lg"
-                />
-              </div>
+              <span className="project-index">FIELD NOTE / {String(projects.indexOf(project) + 1).padStart(2, '0')}</span>
+            </div>
+            <div className="project-body"><p className="project-category">{project.category} <span>· {project.badge}</span></p><h3>{project.title}</h3><p className="project-subtitle">{project.subtitle}</p><p className="project-description">{project.description}</p>
+              <div className="tech-tags">{project.tech.map(tech => <span key={tech}>{tech}</span>)}</div>
+              <details className="project-details"><summary>Behind the build <span>+</span></summary><ul>{project.highlights.map(highlight => <li key={highlight}>{highlight}</li>)}</ul></details>
+              {project.link && project.link !== '#' && <a className="text-link" href={project.link} target="_blank" rel="noopener noreferrer">Visit live project <ArrowUpRight size={16} /></a>}
+              {project.github && project.github !== '#' && <a className="text-link" href={project.github} target="_blank" rel="noopener noreferrer">View source <ArrowUpRight size={16} /></a>}
             </div>
           </div>
-        )}
-
-        {/* Bottom Banner */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-3 rounded-full border border-sea-300/20 bg-night-900/80 px-6 py-3.5 backdrop-blur-xl shadow-soft">
-            <span className="flex h-2.5 w-2.5 rounded-full bg-spirit-400 animate-ping" />
-            <span className="text-sm text-mist font-medium">
-              Need a custom full-stack web application, enterprise dashboard, or automated API pipeline?
-            </span>
-            <a
-              href="#contact"
-              className="text-xs font-bold text-lantern-300 hover:text-lantern-200 underline underline-offset-4 sm:ml-2"
-            >
-              Let&apos;s build it together &rarr;
-            </a>
-          </div>
-        </div>
+        </article>)}
       </div>
-    </section>
-  )
+      <div className="project-outro" data-reveal="up"><Sprout size={23} /><p>Have an idea ready to take root?</p><a className="text-link" href="#contact">Let’s build it together <ArrowUpRight size={17} /></a></div>
+    </div>
+    <dialog ref={dialog} className="preview-dialog" aria-labelledby="preview-title" onClose={() => setSelected(null)} onClick={event => { if (event.target === event.currentTarget) setSelected(null) }}>
+      {selected && <div className="preview-content"><div className="preview-heading"><h2 id="preview-title">{selected.title}</h2><button autoFocus onClick={() => setSelected(null)} aria-label="Close preview"><X size={22} /></button></div><div className="preview-full-image"><Image src={selected.image} alt={selected.title} fill sizes="90vw" style={{ objectFit: 'contain' }} /></div></div>}
+    </dialog>
+  </section>
 }
