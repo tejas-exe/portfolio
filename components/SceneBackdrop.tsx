@@ -4,8 +4,12 @@ import { useEffect, useRef, useState } from 'react'
 
 const VIDEO = '/media/nature-scroll.mp4'
 const POSTER = '/media/nature-poster.jpg'
-const FRAME_INTERVAL = 1000 / 30
 const TIME_EPSILON = 1 / 24
+// Touch devices (mostly Android) have far slower hardware seek/decode than
+// desktop or iOS Safari. Throttle harder and skip the eased catch-up so we
+// issue fewer, more direct seeks instead of a backlog the decoder can't keep up with.
+const COARSE = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches
+const FRAME_INTERVAL = COARSE ? 1000 / 12 : 1000 / 30
 
 export default function SceneBackdrop() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -47,7 +51,9 @@ export default function SceneBackdrop() {
       const delta = target - video.currentTime
       if (Math.abs(delta) < TIME_EPSILON) return
       lastSeek = now
-      const nextTime = Math.abs(delta) < .12 ? target : video.currentTime + delta * .4
+      // Easing smooths fast desktop scrolls, but on a slow mobile decoder each extra
+      // seek just adds latency, so jump straight to the target instead of chasing it.
+      const nextTime = COARSE || Math.abs(delta) < .12 ? target : video.currentTime + delta * .4
       try {
         video.currentTime = Math.max(0, Math.min(video.duration - TIME_EPSILON, nextTime))
       } catch {
@@ -94,9 +100,17 @@ export default function SceneBackdrop() {
         scheduleMeasure()
       }
     }
+    let primed = false
     const loaded = () => {
       setReady(true)
       scheduleMeasure()
+      // Android Chrome silently ignores currentTime writes on a video that has
+      // never played. One muted play() immediately paused (via keepPaused below)
+      // unlocks programmatic seeking without ever visibly auto-playing.
+      if (!primed) {
+        primed = true
+        video.play()?.catch(() => {})
+      }
     }
     const fail = () => {
       broken = true
@@ -151,7 +165,6 @@ export default function SceneBackdrop() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={POSTER} alt="" className="scene-poster" />
       <video ref={videoRef} className="scene-video" muted playsInline preload="none" disablePictureInPicture disableRemotePlayback tabIndex={-1} />
-      <div className="scene-wash" />
     </div>
   )
 }
