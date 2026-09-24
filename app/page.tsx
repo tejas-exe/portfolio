@@ -7,11 +7,13 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import StoryMotion from '@/components/StoryMotion'
 import SceneBackdrop from '@/components/SceneBackdrop'
+import LoadingScreen from '@/components/LoadingScreen'
 
 export default function Home() {
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>
+      <LoadingScreen />
       <SceneBackdrop />
       <Navigation />
       <main id="main-content">

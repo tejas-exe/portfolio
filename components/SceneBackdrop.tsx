@@ -95,15 +95,25 @@ export default function SceneBackdrop() {
       if (stopped) {
         cancelFrames()
         video.pause()
+        // The video never loads under reduced motion, so nothing else would
+        // ever tell the loading screen it's safe to reveal the page.
+        if (reducedMotion.matches) notifyReady()
       } else {
         loadIfNeeded()
         scheduleMeasure()
       }
     }
     let primed = false
+    let notified = false
+    const notifyReady = () => {
+      if (notified) return
+      notified = true
+      window.dispatchEvent(new Event('scene-ready'))
+    }
     const loaded = () => {
       setReady(true)
       scheduleMeasure()
+      notifyReady()
       // Android Chrome silently ignores currentTime writes on a video that has
       // never played. One muted play() immediately paused (via keepPaused below)
       // unlocks programmatic seeking without ever visibly auto-playing.
@@ -117,6 +127,7 @@ export default function SceneBackdrop() {
       cancelFrames()
       setFailed(true)
       video.pause()
+      notifyReady()
     }
     const visibilityChanged = () => {
       if (document.hidden) cancelFrames()
